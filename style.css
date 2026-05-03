@@ -297,6 +297,9 @@
     font-weight: bold;
   }
 
+  /* Carousel dots — hidden on desktop */
+  .testimonial-dots { display: none; }
+
   .home-pillars {
     background: var(--cream);
     padding: 6rem;
@@ -891,6 +894,26 @@
       margin-top: 2rem;
     }
     .testimonials-grid::-webkit-scrollbar { display: none; }
+    .testimonial-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+      padding-right: 1.5rem;
+    }
+    .testimonial-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--sage-light);
+      opacity: 0.35;
+      cursor: pointer;
+      transition: opacity 0.25s, background 0.25s;
+    }
+    .testimonial-dot.active {
+      background: var(--teal);
+      opacity: 1;
+    }
     .testimonial-card {
       flex: 0 0 80vw;
       max-width: 320px;

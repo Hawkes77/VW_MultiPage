@@ -221,6 +221,12 @@
         <p class="testimonial-author">— Charlotte</p>
       </div>
     </div>
+    <div class="testimonial-dots" id="testimonial-dots">
+      <span class="testimonial-dot active"></span>
+      <span class="testimonial-dot"></span>
+      <span class="testimonial-dot"></span>
+      <span class="testimonial-dot"></span>
+    </div>
   </section>
 
   <!-- Pillars -->
@@ -460,6 +466,24 @@
     document.getElementById('nav-links').classList.remove('open');
     document.getElementById('nav-burger').classList.remove('open');
   }
+
+  // Testimonial dots
+  (function() {
+    var grid = document.querySelector('.testimonials-grid');
+    var dots = document.querySelectorAll('.testimonial-dot');
+    if (!grid || !dots.length) return;
+    grid.addEventListener('scroll', function() {
+      var cardWidth = grid.querySelector('.testimonial-card').offsetWidth + 16;
+      var index = Math.round(grid.scrollLeft / cardWidth);
+      dots.forEach(function(d, i) { d.classList.toggle('active', i === index); });
+    }, { passive: true });
+    dots.forEach(function(dot, i) {
+      dot.addEventListener('click', function() {
+        var cardWidth = grid.querySelector('.testimonial-card').offsetWidth + 16;
+        grid.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
+      });
+    });
+  })();
 
 </script>
 </body>
