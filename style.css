@@ -878,8 +878,24 @@
 
     .section { padding: 3.5rem 1.5rem; }
 
-    .home-testimonials { padding: 3.5rem 1.5rem; }
-    .testimonials-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+    .home-testimonials { padding: 3.5rem 0 3.5rem 1.5rem; }
+    .testimonials-grid {
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      gap: 1rem;
+      padding-right: 1.5rem;
+      padding-bottom: 1rem;
+      margin-top: 2rem;
+    }
+    .testimonials-grid::-webkit-scrollbar { display: none; }
+    .testimonial-card {
+      flex: 0 0 80vw;
+      max-width: 320px;
+      scroll-snap-align: start;
+    }
 
     .home-pillars { padding: 3.5rem 1.5rem; }
     .pillars-grid { grid-template-columns: 1fr; gap: 1.25rem; }
