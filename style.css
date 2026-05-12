@@ -82,6 +82,7 @@
 
   .nav-links {
     display: flex; gap: 2.5rem; list-style: none;
+    position: absolute; left: 50%; transform: translateX(-50%);
   }
   .nav-links a {
     font-size: 0.78rem;
@@ -110,6 +111,7 @@
     transition: background var(--transition);
     text-decoration: none;
   }
+  .nav-cta-desktop { margin-left: auto; }
   .nav-cta:hover { background: var(--clay); }
 
   /* ─── PAGES ───────────────────────────────── */
@@ -594,6 +596,7 @@
   .contact-detail-value a { color: var(--teal); text-decoration: none; }
   .contact-detail-value a:hover { color: var(--bark); text-decoration: underline; }
 
+  #contact-form-wrap { scroll-margin-top: 80px; }
   .contact-form {
     background: var(--cream);
     padding: 3rem;
@@ -837,10 +840,12 @@
   /* ─── RESPONSIVE ──────────────────────────── */
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
+    .nav-logo { position: absolute; left: 50%; transform: translateX(-50%); }
     .nav-links {
       display: none;
       position: fixed;
       top: 60px; left: 0; right: 0;
+      transform: none;
       background: rgba(253,251,248,0.98);
       backdrop-filter: blur(16px);
       flex-direction: column;
@@ -853,7 +858,29 @@
     .nav-links li { border-bottom: 1px solid rgba(122,108,94,0.08); }
     .nav-mobile-cta.nav-mobile-cta { border-bottom: none; }
     .nav-links a { display: block; padding: 0.9rem 1.75rem; font-size: 0.82rem; }
-    .nav-cta-desktop { display: none; }
+  .nav-envelope { display: none; }
+  .nav-cta-desktop { display: none; }
+    .nav-envelope {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      margin-left: 0.5rem;
+      color: var(--bark);
+      flex-shrink: 0;
+      overflow: visible;
+    }
+    .nav-envelope svg {
+      width: 20px;
+      height: 16px;
+      fill: var(--bark);
+      transition: fill var(--transition);
+      overflow: visible;
+      display: block;
+    }
+    .nav-envelope:hover svg { fill: var(--clay); }
+
     .nav-burger { display: flex; }
     .nav-mobile-cta { display: block; padding: 1.25rem 1.75rem 0.5rem; border-top: none; }
     .nav-mobile-cta a {
